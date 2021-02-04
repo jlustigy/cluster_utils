@@ -6,8 +6,8 @@ import subprocess
 import fire
 
 def write_qsub_python_script(runfile, name="script", subname="submit.csh",
-                      workdir = "", submit = False, rm_after_submit = True,
-                      preamble = [], nslots = None, pe = "make"):
+                      workdir = "", submit = True, rm_after_submit = True,
+                      preamble = [], nslots = None, pe = "ocmp"):
     """
     """
 
