@@ -9,6 +9,32 @@ def write_qsub_python_script(runfile, name="script", subname="submit.csh",
                       workdir = "", submit = True, rm_after_submit = True,
                       preamble = [], nslots = None, pe = "ocmp"):
     """
+    Write and (optionally) submit a python file to run via Sun Grid Engine.
+
+    runfile : str
+        Python script file (*.py) that will be submitted
+    name : str
+        Name of code that will be visible in the queue
+    subname : str
+        Name of bash script that will be created to submit job
+    workdir : str
+        Relative directory for job
+    submit : bool
+        Set to directly submit job
+    rm_after_submit : bool
+        Set to remove bash script after submission
+    preamble : list of str
+        List of strings for extra commands to run before executing python code
+    nslots : int
+        Number of CPUs to announce that the code will use (note that you can use
+        more in your python code, but you probably shounldn't do that!)
+    pe : str
+        Parallel environment flag for SGE
+
+    Returns
+    -------
+    None
+
     """
 
     # Check that the given runfile exists
