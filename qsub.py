@@ -5,7 +5,7 @@ import stat
 import subprocess
 import fire
 
-def write_qsub_python_script(runfile, name="script", subname="submit.csh",
+def write_qsub_python_script(runfile, runcommand = "python", name="script", subname="submit.csh",
                       workdir = "", submit = True, rm_after_submit = True,
                       preamble = [], nslots = None, pe = "ocmp"):
     """
@@ -69,7 +69,7 @@ def write_qsub_python_script(runfile, name="script", subname="submit.csh",
     f.write('\n')
 
     # Standard python call
-    f.write('python %s\n' %runfile)
+    f.write('%s %s\n' %(runcommand, runfile))
 
     f.close()
 
